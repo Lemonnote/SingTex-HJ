@@ -15,8 +15,11 @@ Imports System.Runtime.InteropServices
 <Assembly: AssemblyCopyrightAttribute("Copyright ©  2008")> 
 <Assembly: AssemblyTrademarkAttribute("")>
 
-<Assembly: AssemblyVersionAttribute("8.04.*")>
-<Assembly: AssemblyFileVersionAttribute("8.04")>
+<Assembly: AssemblyVersionAttribute("8.05.*")>
+<Assembly: AssemblyFileVersionAttribute("8.05")>
+
+'Version 8.05 2019-11-22 George Lin
+'修正馬達自動控制的邏輯
 
 'Version 8.01 2019-09-25 George Lin
 'F34新增參數主泵與帶布輪速度差，將主泵調整到固定速度時，帶布輪速度為主泵速度-速度差
