@@ -21,7 +21,9 @@ Public NotInheritable Class Command34
       布速參數2 = param(3)
       布速 = param(2) * 10 + param(3)
       速度差 = param(4)
-
+      If param(1) > 0 Then
+        .PumpControl.Cancel()
+      End If
       State = S34.載入參數
     End With
   End Function

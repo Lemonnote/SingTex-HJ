@@ -15,8 +15,12 @@ Imports System.Runtime.InteropServices
 <Assembly: AssemblyCopyrightAttribute("Copyright ©  2008")> 
 <Assembly: AssemblyTrademarkAttribute("")>
 
-<Assembly: AssemblyVersionAttribute("8.05.*")>
-<Assembly: AssemblyFileVersionAttribute("8.05")>
+<Assembly: AssemblyVersionAttribute("8.06.*")>
+<Assembly: AssemblyFileVersionAttribute("8.06")>
+
+'Version 8.06 2019-11-28 George Lin
+'執行F34時會將PumpControl重置
+'升溫超過95度後的降溫才會改用慢速
 
 'Version 8.05 2019-11-22 George Lin
 '修正馬達自動控制的邏輯

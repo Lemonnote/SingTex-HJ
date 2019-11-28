@@ -51,6 +51,7 @@ Public Class PumpControl_
   Public PumpRunReelAutoStart As Boolean
   Public PumpRunSlowReelReStartDelay As New DelayTimer
   Public PumpRunSlowReelAutoStart As Boolean
+  Public HeatForDyeingWas As Boolean
 
   Public Sub Run()
     With ControlCode
@@ -254,6 +255,7 @@ Public Class PumpControl_
           PumpControl_Reel2SpeedWas = PumpControl_Reel2Speed
           WaitTimer.TimeRemaining = 60
           CycleTimeOK_Times = 0
+          HeatForDyeingWas = False
           State = PumpControl.PumpRun
 
         Case PumpControl.PumpRun
@@ -310,9 +312,12 @@ Public Class PumpControl_
             CycleTimeOK_Times = CycleTimeOK_Times + 1
             WaitTimer.TimeRemaining = PumpControl_CheckCycleTime
           End If
+          If .HeatNow And .IO.MainTemperature > 950 Then
+            HeatForDyeingWas = True
+          End If
 
           '降溫到120度以下時就用慢速來運行
-          If .CoolNow And .IO.MainTemperature < 1200 Then
+          If .CoolNow And .IO.MainTemperature < 1200 And HeatForDyeingWas Then
             PumpControl_MainPumpSpeed = PumpControl_MainPumpSpeed - 200
             PumpControl_Reel1Speed = PumpControl_Reel1Speed - 200
             PumpControl_Reel2Speed = PumpControl_Reel1Speed - 200
@@ -476,6 +481,7 @@ Public Class PumpControl_
 #Region " Standard Definitions "
   Public Sub Cancel()
     With ControlCode
+      HeatForDyeingWas = False
       State = PumpControl.off
     End With
   End Sub
