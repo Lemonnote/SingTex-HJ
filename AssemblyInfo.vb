@@ -15,8 +15,11 @@ Imports System.Runtime.InteropServices
 <Assembly: AssemblyCopyrightAttribute("Copyright ©  2008")> 
 <Assembly: AssemblyTrademarkAttribute("")>
 
-<Assembly: AssemblyVersionAttribute("8.06.*")>
-<Assembly: AssemblyFileVersionAttribute("8.06")>
+<Assembly: AssemblyVersionAttribute("8.07.*")>
+<Assembly: AssemblyFileVersionAttribute("8.07")>
+
+'Version 8.07 2019-11-29 George Lin
+'降溫到120度之後速度降為90%
 
 'Version 8.06 2019-11-28 George Lin
 '執行F34時會將PumpControl重置

@@ -318,9 +318,9 @@ Public Class PumpControl_
 
           '降溫到120度以下時就用慢速來運行
           If .CoolNow And .IO.MainTemperature < 1200 And HeatForDyeingWas Then
-            PumpControl_MainPumpSpeed = PumpControl_MainPumpSpeed - 200
-            PumpControl_Reel1Speed = PumpControl_Reel1Speed - 200
-            PumpControl_Reel2Speed = PumpControl_Reel1Speed - 200
+            PumpControl_MainPumpSpeed = CInt(PumpControl_MainPumpSpeed * 0.9)
+            PumpControl_Reel1Speed = CInt(PumpControl_Reel1Speed * 0.9)
+            PumpControl_Reel2Speed = CInt(PumpControl_Reel1Speed * 0.9)
             PumpControl_MainPumpSpeedWas = PumpControl_MainPumpSpeed
             PumpControl_Reel1SpeedWas = PumpControl_Reel1Speed
             PumpControl_Reel2SpeedWas = PumpControl_Reel1Speed
