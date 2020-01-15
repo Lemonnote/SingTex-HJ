@@ -33,8 +33,11 @@ TranslateDescription("zh-TW", "999秒=最高 0秒=不攪拌   1=備清水 0=備�
       WaitRunning.TimeRemaining = (.Parameters.WaitOverTime * 60) + Time
       Type = MinMax(param(2), 0, 1)
             CallOff = param(3)
-            Qty = MinMax(param(4) * 10, 0, 1000)
-            .SPCConnectError = False
+      If .ChemicalStepReady(CallOff) And .Parameters.EnableRepeatCallDispenser = 0 Then
+        CallOff = 0
+      End If
+      Qty = MinMax(param(4) * 10, 0, 1000)
+      .SPCConnectError = False
             .ChemicalCallOff = 0   'Starts the handshake with the host / auto dispenser
             .ChemicalTank = 0
             .ChemicalState = 101

@@ -47,9 +47,12 @@ TranslateDescription("zh-TW", "999秒=最高 0秒=不攪拌   1=備清水 0=備�
 
             Time = Maximum(param(1), 999)
             Type = MinMax(param(2), 0, 1)
-            CallOff = param(3)
-            Qty = MinMax(param(4) * 10, 0, 1000)
-      .RunCTankPrepare = True
+      CallOff = param(3)
+      If .ChemicalStepReady(CallOff) And .Parameters.EnableRepeatCallDispenser = 0 Then
+        CallOff = 0
+      End If
+      Qty = MinMax(param(4) * 10, 0, 1000)
+        .RunCTankPrepare = True
       WaitTimer.TimeRemaining = 10
       State = S55.WaitAuto
     End With

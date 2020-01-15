@@ -51,8 +51,12 @@ Public NotInheritable Class Command54
 
             Time = Maximum(param(1), 999)
             Type = MinMax(param(2), 0, 1)
-            CallOff = param(3)
-            Qty = MinMax(param(4) * 10, 0, 1000)
+      CallOff = param(3)
+      If .DyeStepReady(CallOff) And .Parameters.EnableRepeatCallDispenser = 0 Then
+        CallOff = 0
+      End If
+
+      Qty = MinMax(param(4) * 10, 0, 1000)
 
       State = S54.WaitAuto
         End With

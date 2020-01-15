@@ -15,8 +15,11 @@ Imports System.Runtime.InteropServices
 <Assembly: AssemblyCopyrightAttribute("Copyright ©  2008")> 
 <Assembly: AssemblyTrademarkAttribute("")>
 
-<Assembly: AssemblyVersionAttribute("8.07.*")>
-<Assembly: AssemblyFileVersionAttribute("8.07")>
+<Assembly: AssemblyVersionAttribute("8.08.*")>
+<Assembly: AssemblyFileVersionAttribute("8.08")>
+
+'Version 8.08 2020-01-15 George Lin
+'新增是否允許重複呼叫的參數，如果設定為0不允許，當DyeStepReady或ChemicalStepReady=True，則將CallOff載入0
 
 'Version 8.07 2019-11-29 George Lin
 '降溫到120度之後速度降為90%

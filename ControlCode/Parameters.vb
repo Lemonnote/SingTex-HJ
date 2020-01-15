@@ -200,6 +200,10 @@ Description("如果沒有連線,請按1會重新連線.如果有連線後會自�
 TranslateCategory("zh-TW", "LASPC連結"),
 Description("設定1為連接SPC數據庫")> Public ConnectSPCEnable As Integer = 1
 
+  <Translate("zh-TW", "是否允許重複呼叫配方"), Category("Auto Dispenser"),
+TranslateCategory("zh-TW", "LASPC連結"),
+Description("設定0為不允許，1為允許重複呼叫")> Public EnableRepeatCallDispenser As Integer = 0
+
   '藥缸參數
 
   <Translate("zh-TW", "ST:藥缸加完延遲時間秒"), Category("Side Tank"), _

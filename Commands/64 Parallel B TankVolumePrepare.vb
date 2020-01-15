@@ -36,8 +36,11 @@ Public NotInheritable Class Command64
       WaitRunning.TimeRemaining = (.Parameters.WaitOverTime * 60) + Time
       Type = MinMax(param(2), 0, 1)
             CallOff = param(3)
-            Qty = MinMax(param(4) * 10, 0, 1000)
-            .SPCConnectError = False
+      If .DyeStepReady(CallOff) And .Parameters.EnableRepeatCallDispenser = 0 Then
+        CallOff = 0
+      End If
+      Qty = MinMax(param(4) * 10, 0, 1000)
+      .SPCConnectError = False
             .DyeCallOff = 0   'Starts the handshake with the host / auto dispenser
             .DyeTank = 0
             .DyeState = 101
